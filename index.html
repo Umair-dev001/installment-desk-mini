@@ -1,22 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#f6f8fc">
-  <meta name="description" content="A small, fast installment calculator for showroom counter sales. Enter selling price, advance, and duration to see a full payment plan instantly.">
+  <meta name="description"
+    content="A small, fast installment calculator for showroom counter sales. Enter selling price, advance, and duration to see a full payment plan instantly.">
   <title>Installment Desk | Quick Planner</title>
+  
+<link rel="icon" href="assets/icons/favicon.ico">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png">
+<link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+
   <link rel="stylesheet" href="assets/css/styles.css">
   <script src="assets/js/app.js" defer></script>
 </head>
+
 <body>
   <div class="page-shell">
     <header class="topbar">
       <div class="brand" aria-label="Installment Desk">
         <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="5" y="3" width="14" height="18" rx="3"/>
-            <path d="M8.5 8.5h7m-6 4h1m4 0h.01M9.5 16.5h1m4 0h.01"/>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <rect x="5" y="3" width="14" height="18" rx="3" />
+            <path d="M8.5 8.5h7m-6 4h1m4 0h.01M9.5 16.5h1m4 0h.01" />
           </svg>
         </span>
         <span class="brand-name">installment<span>desk</span><span class="brand-dot">.</span></span>
@@ -35,7 +45,10 @@
         <section class="form-panel panel" aria-labelledby="formTitle">
           <div class="section-heading">
             <div class="section-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M4 7h16M4 12h16M4 17h10" />
+              </svg>
             </div>
             <div>
               <h2 id="formTitle">Plan details</h2>
@@ -48,7 +61,8 @@
               <label for="sellingPrice">Total selling price</label>
               <div class="input-wrap">
                 <span class="prefix">Rs.</span>
-                <input id="sellingPrice" name="sellingPrice" inputmode="decimal" type="text" placeholder="e.g. 60,000" autocomplete="off" spellcheck="false" maxlength="19" aria-describedby="priceHint">
+                <input id="sellingPrice" name="sellingPrice" inputmode="decimal" type="text" placeholder="e.g. 60,000"
+                  autocomplete="off" spellcheck="false" maxlength="19" aria-describedby="priceHint">
               </div>
               <p class="hint" id="priceHint">Your final price — profit already included.</p>
             </div>
@@ -57,7 +71,8 @@
               <label for="advancePayment">Advance payment</label>
               <div class="input-wrap">
                 <span class="prefix">Rs.</span>
-                <input id="advancePayment" name="advancePayment" inputmode="decimal" type="text" value="0" placeholder="0" autocomplete="off" spellcheck="false" maxlength="19">
+                <input id="advancePayment" name="advancePayment" inputmode="decimal" type="text" value="0"
+                  placeholder="0" autocomplete="off" spellcheck="false" maxlength="19">
               </div>
             </div>
 
@@ -79,12 +94,16 @@
                   <option value="11">11 months</option>
                   <option value="12">12 months</option>
                 </select>
-                <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="m6 9 6 6 6-6" />
+                </svg>
               </div>
             </div>
             <p class="validation" id="validation" role="alert" hidden></p>
           </form>
-          <div class="under-form"><span class="privacy-dot" aria-hidden="true"></span> Instant calculation · Nothing is saved</div>
+          <div class="under-form"><span class="privacy-dot" aria-hidden="true"></span> Instant calculation · Nothing is
+            saved</div>
         </section>
 
         <section class="plan-panel panel" aria-labelledby="scheduleTitle" aria-live="off">
@@ -116,28 +135,46 @@
 
           <div class="schedule-table-wrap">
             <table class="schedule-table" aria-label="Monthly installment schedule">
-              <thead><tr><th scope="col">Month</th><th scope="col">Installment</th><th scope="col">Balance left</th></tr></thead>
+              <thead>
+                <tr>
+                  <th scope="col">Month</th>
+                  <th scope="col">Installment</th>
+                  <th scope="col">Balance left</th>
+                </tr>
+              </thead>
               <tbody id="scheduleBody">
-                <tr class="empty-row"><td colspan="3">
-                  <div class="empty-content">
-                    <span class="empty-icon" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 9h8M8 13h8m-8 4h4"/></svg>
-                    </span>
-                    <strong>Your plan will appear here</strong>
-                    <small>Fill in the three fields on the left.</small>
-                  </div>
-                </td></tr>
+                <tr class="empty-row">
+                  <td colspan="3">
+                    <div class="empty-content">
+                      <span class="empty-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                          stroke-linecap="round" stroke-linejoin="round">
+                          <rect x="4" y="4" width="16" height="16" rx="3" />
+                          <path d="M8 9h8M8 13h8m-8 4h4" />
+                        </svg>
+                      </span>
+                      <strong>Your plan will appear here</strong>
+                      <small>Fill in the three fields on the left.</small>
+                    </div>
+                  </td>
+                </tr>
               </tbody>
               <tfoot id="scheduleFooter" hidden>
-                <tr><th scope="row">Total</th><td id="totalInstallments">—</td><td id="finalBalance">Rs. 0</td></tr>
+                <tr>
+                  <th scope="row">Total</th>
+                  <td id="totalInstallments">—</td>
+                  <td id="finalBalance">Rs. 0</td>
+                </tr>
               </tfoot>
             </table>
           </div>
-          <p class="rounding-note" id="roundingNote" hidden>Installments may differ slightly because of rounding; their total always equals the remaining balance.</p>
+          <p class="rounding-note" id="roundingNote" hidden>Installments may differ slightly because of rounding; their
+            total always equals the remaining balance.</p>
         </section>
       </div>
       <p class="footer-note">Designed for quick counter-side calculations · Works without internet</p>
     </main>
   </div>
 </body>
+
 </html>
